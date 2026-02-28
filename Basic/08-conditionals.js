@@ -13,6 +13,8 @@ if (age == 37) {
     console.log("La edad es 37")
 }
 
+
+
 // else (si no)
 
 if (age == 37) {
@@ -35,8 +37,11 @@ if (age == 37) {
 
 const message = age == 37 ? "La edad es 37" : "La edad no es 37"
 console.log(message)
-
-// switch
+//message es la asignación de una variable que se le asigna el valor de "La edad es 37" 
+// si la condición age == 37 es verdadera, o "La edad no es 37" si la condición es falsa, 
+// lo que hace el operador ternario es evaluar la condición y devolver uno de los dos valores 
+// dependiendo de si la condición es verdadera o falsa, lo que hace que el código sea más conciso y
+//  fácil de leer en comparación con un bloque if-else tradicional.
 
 let day = 3
 let dayName

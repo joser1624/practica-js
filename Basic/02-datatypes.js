@@ -53,3 +53,6 @@ console.log(typeof mySymbol)
 
 console.log(typeof myBigInt)
 console.log(typeof myBigInt2)
+// Combinamos tipos de datos
+let combined = myName + " tiene " + age + " años y mide " + height + " metros."
+console.log(combined)

@@ -18,6 +18,9 @@ console.log("¡Hola, JavaScript!")
 console.log('¡Hola, JavaScript!')
 console.log(`¡Hola, JavaScript!`)
 
+console.log("¡Halo soy Jose!")
+
+
 // console.log("¡Hola, JavaScript!")
 
 /*
@@ -34,3 +37,4 @@ console.log(5 * 2)
 console.log(5 / 2)
 console.log(5 % 2)
 console.log(5 ** 2)
+console.log(5 ** 3)

@@ -5,7 +5,7 @@ Vídeo: https://youtu.be/1glVfFxj8a4?t=11575
 
 // Loops o bucles
 
-// for
+// for -->
 
 for (let i = 0; i < 5; i++) {
     console.log(`Hola ${i}`)

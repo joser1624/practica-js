@@ -76,18 +76,61 @@ console.log(libros.delete('coquito')) //-->devuelve false, porque el elemento 'c
 console.log(libros.has('lalito')) //--> devuelve true porque 'lalito' si existe
 // 15. Convierte el set en un array y ordénalo alfabéticamente
 // Pista: Array.from(set) o spread operator [...] + sort()
-
-// 16. Añade varios elementos usando un array y forEach
+let miarray2=[]
+console.log('este es mi nuevo array q viene de un SET')
+miarray2=Array.from(libros);
+console.log(miarray2)
+// 16. Añade varios elementos usando un array y forEach//////////////////////////////////////////////////////
 // Pista: Recorre el array y usa add() dentro del forEach
+//ejemplo 
+let arraylibros = ['el principito','el alquimista','el señor de los anillos']
+arraylibros.forEach(libro => libros.add(libro)) // el foreach recorre cada elemento del array y lo añade al set usando add()
+                                                // es como un for tradicional pero con una sintaxis más limpia y moderna, 
+                                                // y es especialmente útil para trabajar con arrays y sets.
+                                                // "libro" solo es el nombre de la variable que representa cada elemento del array 
+                                                // durante la iteración, y puede ser cualquier nombre que elijas, 
+                                                // lo importante es que dentro del bloque de código del forEach se use esa variable 
+                                                // para referirse al elemento actual del array.
+console.log(libros)
 
-// 17. Crea un set a partir de un string y muestra sus letras únicas
+let array3= ['300','paco yunque']
+array3.forEach(i=> libros.add(i))
+console.log('agregue al set #libros ' + array3.length + ' elementos y quedaria asi : ' );
+console.log(libros)
+
+// 17. Crea un set a partir de un string y muestra sus letras únicas/////////////////////////////////////////
 // Pista: new Set("cadena") separa cada carácter automáticamente
+let cadena = "hola mundo";
+let letrasUnicas = new Set(cadena);
+console.log('Letras únicas en la cadena "' + cadena + '":');
+for (let letra of letrasUnicas) {
+  console.log(letra);
+}
+//ahora yo:
+let cadena2= 'me quiero'
+let susletras = new Set(cadena2);
+for(let i of susletras) {
+    console.log(i)
+}
 
-// 18. Combina dos sets en uno solo sin duplicados
+
+// 18. Combina dos sets en uno solo sin duplicados/////////////////////////////////////////////////////////
 // Pista: Usa spread operator [...] y new Set([...set1,...set2])
+let set1 = new Set([1, 2, 3, 4, 5]);
+let set2 = new Set([4, 5, 6, 7, 8]);
+let setCombinado = new Set([...set1, ...set2]);
+console.log(setCombinado) //--> el set combinado tendrá los números del 1 al 8 sin duplicados, es decir, {1, 2, 3, 4, 5, 6, 7, 8}.
+
+//ahora yo:
+let s1= new Set([9, 8, 7, 6,5]);
+let s2= new Set([1,2,3,4,5,6,7,8]);
+let set_combinado=new Set([...s1,...s2]);
+console.log(set_combinado);
+
 
 // 19. Crea un set que contenga números del 1 al 10 y elimina los pares
 // Pista: Recorre el set con forEach y usa delete() para eliminar pares
+
 
 // 20. Recorre un set y multiplica cada número por 2 almacenando los resultados en un array
 // Pista: Crea un array vacío y dentro del forEach push(n*2)

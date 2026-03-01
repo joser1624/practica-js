@@ -128,12 +128,31 @@ let set_combinado=new Set([...s1,...s2]);
 console.log(set_combinado);
 
 
-// 19. Crea un set que contenga números del 1 al 10 y elimina los pares
+// 19. Crea un set que contenga números del 1 al 10 y elimina los pares//////////////////////////////////////
 // Pista: Recorre el set con forEach y usa delete() para eliminar pares
 
+let nros= new Set([1,2,3,4,5,6,7,8,9,10])
+nros.forEach(m=> {
+    if (m%2!=1){
+        nros.delete(m)
+    }
+} )
+console.log(nros)
+
+                        /*estructura general : 
+                        array.forEach((elemento, indice, arrayCompleto) => {
+                            código aquí
+                        });
+                        */
 
 // 20. Recorre un set y multiplica cada número por 2 almacenando los resultados en un array
 // Pista: Crea un array vacío y dentro del forEach push(n*2)
+let h =[];
+nros.forEach(x=> {
+    x*=2;
+    h.push(x)
+})
+console.log(h)
 
 
 /*

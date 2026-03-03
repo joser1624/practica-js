@@ -5,9 +5,11 @@ Vídeo: https://youtu.be/1glVfFxj8a4?t=11575
 
 // Loops o bucles
 
-// for -->
+// for --> sirve para repetir un bloque de código un número determinado de veces
+// un bucle es una estructura de control que nos permite ejecutar un bloque de código varias veces, dependiendo de una condición. Existen varios tipos de bucles en JavaScript, como el bucle for, while, do-while y for-of.
+//podemos
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) { // empezamos con i = 0, mientras i sea menor que 5, se ejecuta el bloque de código y luego se incrementa i en 1
     console.log(`Hola ${i}`)
 }
 

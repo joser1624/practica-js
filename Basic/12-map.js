@@ -69,7 +69,8 @@ console.log(myMap) // resultado: Map(3) {"name" => "Brais Moure", "age" => 37, 
 
 console.log(myMap.keys()) // devuelve: MapIterator {"name", "age", "alias"}, que es un iterador que contiene las claves del map.
 console.log(myMap.values()) // devuelve: MapIterator {"Brais Moure", 37, "mouredev"}, que es un iterador que contiene los valores del map.
-console.log(myMap.entries()) // devuelve: MapIterator {"name" => "Brais Moure", "age" => 37, "alias" => "mouredev"}, que es un iterador que contiene los pares clave-valor del map como arrays de dos elementos.
+console.log(myMap.entries()) // devuelve: MapIterator {"name" => "Brais Moure", "age" => 37, "alias" => "mouredev"}, 
+// que es un iterador que contiene los pares clave-valor del map como arrays de dos elementos.
 
 // size --> se utiliza para obtener el número de pares clave-valor presentes en un map.
 
@@ -86,3 +87,191 @@ console.log(myMap) // resultado: Map(0) {}, que es un map vacío después de ll
 
 
 
+/*
+===================================================================================================================0
+METODOS IMPORTANTES DE ARRAYS EN JAVASCRIPT
+Apuntes para repasar
+=====================================================================================================================
+*/
+//un metodo es una función que se asocia a un objeto o a una clase, y que se puede llamar utilizando la sintaxis de punto (objeto.metodo()).
+// un array es un tipo de objeto en JavaScript que se utiliza para almacenar una colección de elementos, y los métodos de arrays son funciones predefinidas que se pueden utilizar para manipular y trabajar con los arrays de manera eficiente.
+
+//un objeto iterable es aquel que implementa el protocolo de iteración, 
+// lo que significa que tiene un método Symbol.iterator que devuelve un iterador.
+// un iterador es un objeto que tiene un método next() que devuelve un objeto con dos propiedades: 
+// value, que es el valor actual del iterador, y done, que es un booleano que indica si el iterador ha terminado de recorrer la colección o no.
+// un iterable es cualquier objeto que se puede recorrer con un bucle for...of, como un array, un string, un map, etc.
+// un objeto como tal es una colección de propiedades, donde cada propiedad tiene un nombre (clave) y un valor asociado. 
+// En JavaScript, los objetos se pueden crear utilizando la sintaxis de llaves ({}) o utilizando la función constructora Object().
+
+//una clase es una plantilla para crear objetos, que define las propiedades y métodos que los objetos creados a partir de esa clase tendrán.
+// una función constructora es una función que se utiliza para crear objetos a partir de una clase, y se llama utilizando el operador new. 
+// La función constructora inicializa las propiedades del objeto y puede definir métodos para ese objeto. 
+// En JavaScript, las clases son una forma más moderna y sintácticamente más clara de crear objetos y manejar la herencia, pero debajo de ellas se utilizan funciones constructoras para crear los objetos.
+
+
+/*
+1️⃣ forEach()
+
+¿Para qué sirve?
+- Recorre el array y ejecuta una función por cada elemento.
+- NO devuelve un nuevo array.
+- Se usa cuando solo quieres ejecutar algo (ej: imprimir en consola).
+
+Sintaxis:
+array.forEach((elemento, indice, array) => { ... })
+
+Ejemplo:
+*/
+[1,2,3].forEach(num => {
+    console.log(num);
+});
+
+
+/*
+2️⃣ map()
+
+¿Para qué sirve?
+- Recorre el array y transforma cada elemento.
+- Devuelve un NUEVO array del mismo tamaño.
+- Se usa cuando quieres modificar datos.
+
+Sintaxis:
+array.map((elemento) => nuevaVersion)
+
+Ejemplo:
+*/
+let dobles = [1,2,3].map(n => n * 2);
+// Resultado: [2,4,6]
+
+
+/*
+3️⃣ filter()
+
+¿Para qué sirve?
+- Filtra elementos según una condición.
+- Devuelve un NUEVO array.
+- La función debe devolver true o false.
+
+Sintaxis:
+array.filter(elemento => condicion)
+
+Ejemplo:
+*/
+let mayores = [10, 20, 5, 30].filter(n => n > 15);
+// Resultado: [20,30]
+
+
+/*
+4️⃣ reduce()
+
+¿Para qué sirve?
+- Reduce todo el array a un solo valor.
+- Se usa para sumar, contar, agrupar, etc.
+- Recibe un acumulador.
+
+Sintaxis:
+array.reduce((acumulador, elemento) => resultado, valorInicial)
+
+Ejemplo:
+*/
+let suma = [1,2,3,4].reduce((acc, num) => acc + num, 0);
+// Resultado: 10
+
+
+/*
+5️⃣ find()
+
+¿Para qué sirve?
+- Devuelve el PRIMER elemento que cumple la condición.
+- No devuelve un array.
+- Si no encuentra nada devuelve undefined.
+
+Sintaxis:
+array.find(elemento => condicion)
+
+Ejemplo:
+*/
+let encontrado = [5,10,15].find(n => n > 8);
+// Resultado: 10
+
+
+/*
+6️⃣ some()
+
+¿Para qué sirve?
+- Devuelve true si AL MENOS UNO cumple la condición.
+- Devuelve false si ninguno cumple.
+
+Sintaxis:
+array.some(elemento => condicion)
+
+Ejemplo:
+*/
+let hayMayor = [1,2,3,4].some(n => n > 3);
+// Resultado: true
+
+
+/*
+7️⃣ every()
+
+¿Para qué sirve?
+- Devuelve true si TODOS cumplen la condición.
+- Devuelve false si alguno no cumple.
+
+Sintaxis:
+array.every(elemento => condicion)
+
+Ejemplo:
+*/
+let todosPares = [2,4,6].every(n => n % 2 === 0);
+// Resultado: true
+
+
+/*
+8️⃣ push() y pop()
+
+¿Para qué sirven?
+- push(): agrega un elemento al FINAL.
+- pop(): elimina el último elemento.
+- Modifican el array original.
+
+Ejemplo:
+*/
+let arr1 = [1,2];
+arr1.push(3); // [1,2,3]
+arr1.pop();   // [1,2]
+
+
+/*
+9️⃣ shift() y unshift()
+
+¿Para qué sirven?
+- unshift(): agrega al INICIO.
+- shift(): elimina el primero.
+- Modifican el array original.
+
+Ejemplo:
+*/
+let arr2 = [2,3];
+arr2.unshift(1); // [1,2,3]
+arr2.shift();    // [2,3]
+
+
+/*
+==============================
+RESUMEN MENTAL RAPIDO
+==============================
+
+forEach → ejecutar
+map     → transformar
+filter  → filtrar
+reduce  → acumular
+find    → encontrar uno
+some    → existe alguno?
+every   → todos cumplen?
+push    → agregar al final
+pop     → quitar último
+shift   → quitar primero
+unshift → agregar al inicio
+*/

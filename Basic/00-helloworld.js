@@ -13,7 +13,20 @@ Esto es
 un comentario
 en varias líneas
 */
-
+/* */
+// roly
+console.log("¡Hola, JavaScript!")
+console.log('¡Hola, JavaScript!')
+console.log(`¡Hola, JavaScript!`)
+console.log(5)
+console.log("5")
+console.log(5 + 2)
+console.log(5 - 2)
+console.log(5 * 2)
+console.log(5 / 2)
+console.log(5 % 2)
+console.log(5 ** 2)
+// jose
 console.log("¡Hola, JavaScript!")
 console.log('¡Hola, JavaScript!')
 console.log(`¡Hola, JavaScript!`)

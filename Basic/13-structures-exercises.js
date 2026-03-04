@@ -48,42 +48,48 @@ console.log(animales)
 // Pista: Usa sort() para ordenar strings, sort los ordena alfabeticamente
 animales.sort()
 console.log(animales)
-
+//jose: resultado: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'vaca']
 
 
 // 6. Encuentra la posición del animal “perro” (suponiendo que exista en el array)
 // Pista: indexOf() devuelve la posición o -1 si no existe
-
-
-
 console.log('el animal perro se encuentra en la posicion ' + animales.indexOf('perro'));
+//jose: resultado: el animal perro se encuentra en la posicion 4
+
+
+
 // 7. Crea un nuevo array con los dos primeros elementos del original usando slice
 // Pista: slice(inicio, fin) crea un nuevo array sin modificar el original
 let animales2 = animales.slice(0,2);
 console.log(animales2)
-
+//el array inicial es: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'vaca'] y al aplicar slice(0,2) se obtiene un nuevo array que contiene los elementos desde el índice 0 hasta el índice 2 (sin incluir el índice 2), es decir, los elementos en las posiciones 0 y 1 del array original, que son 'caballo' y 'conejo'. Por lo tanto, el resultado es ['caballo', 'conejo'].
+//devuelve: ['caballo', 'conejo'] porque slice(0,2) toma los elementos desde el índice 0 hasta el índice 2 (sin incluir el índice 2), es decir, los elementos en las posiciones 0 y 1 del array original "animales".
 
 
 // 8. Sustituye el último elemento por uno nuevo usando splice
 // Pista: splice(índice, cantidad, elementoNuevo)
 animales.splice(-1,1,'camello')
 console.log(animales)
+//teniamos: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'vaca']
+//al aplicar splice(-1,1,'camello') se indica que se quiere modificar el último elemento del array (índice -1), se elimina 1 elemento (el último) y se agrega 'camello' en su lugar. Por lo tanto, el resultado es que el último elemento 'vaca' es reemplazado por 'camello', quedando el array modificado como ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'camello'].
+//resultado: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'camello'] porque splice(-1,1,'camello') reemplaza el último elemento del array (índice -1) eliminando 1 elemento (el último) y agregando 'camello' en su lugar, modificando así el array original "animales".
 
 
 
 
 // 9. Añade tres animales nuevos usando push
 // Pista: push() acepta uno o varios elementos
-console.log('los animales hasta aqui son >>>' + animales)
-animales.push('aguila','nicolas','ian')
-console.log(animales)
+//hasta este punto teniamos el array: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'camello']
+animales.push('aguila','nicolas','ian') //al aplicar push('aguila','nicolas','ian') se añaden los tres nuevos elementos al final del array "animales", quedando el array modificado como ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'camello', 'aguila', 'nicolas', 'ian'].
+console.log(animales) //resultado: ['caballo', 'conejo', 'gato', 'oveja', 'perro', 'toro', 'camello', 'aguila', 'nicolas', 'ian'] porque push('aguila','nicolas','ian') añade los tres nuevos elementos al final del array "animales", modific
 
 
 
 // 10. Elimina el primer elemento usando shift
 // Pista: shift() elimina el primer elemento y lo devuelve
 console.log('el animal eliminado con shift es ' + animales.shift());
-
+//resultado: el animal eliminado con shift es caballo porque shift() elimina el primer elemento del array "animales" y lo devuelve, en este caso, el primer elemento es 'caballo', por lo que se elimina del array y se muestra en la consola como resultado de la operación shift().
+console.log(animales) //resultado: ['conejo', 'gato', 'oveja', 'perro', 'toro', 'camello', 'aguila', 'nicolas', 'ian'] porque shift() elimina el primer elemento del array "animales", que es 'caballo', y devuelve ese elemento, dejando el array modificado sin el primer elemento, resultando en ['conejo', 'gato', 'oveja', 'perro', 'toro', 'camello', 'aguila', 'nicolas', 'ian'].
 
 
 
@@ -96,7 +102,7 @@ Bloque 2 – Sets y su manipulación (niveles 11-20)
 // Pista: Usa new Set([...]) pasando un array con los libros
 let libros = new Set (['caballero carmelo','harry potter','alas de sangre','piense y hagase rico','padre rico padre pobre'])
 console.log(libros);
-
+//resultado: Set(5) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre'} porque al crear un nuevo Set con new Set([...]) y pasar un array con los libros, se crea un conjunto que almacena esos cinco libros sin permitir duplicados, y se muestra en la consola como resultado de la operación de creación del Set.
 
 
 // 12. Añade dos más. Uno de ellos repetido
@@ -104,14 +110,14 @@ console.log(libros);
 libros.add('coquito')
 libros.add('lalito') //--> se añade uno por uno y no se pueden añadir varios a la vez, ya que el método add() solo acepta un elemento como argumento, y si se intenta añadir varios elementos a la vez, se producirá un error.
 libros.add('coquito') //--> no se añade porque ya existe en el set, ya que los sets no permiten elementos duplicados.
-console.log(libros)
+console.log(libros) //resultado: Set(7) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'coquito', 'lalito'} porque al usar add() para agregar los libros 'coquito' y 'lalito' al Set "libros", se añaden correctamente al conjunto, pero al intentar añadir 'coquito' nuevamente, no se agrega porque ya existe en el Set, lo que demuestra que los Sets no permiten elementos duplicados. Por lo tanto, el resultado final del Set "libros" contiene los siete libros únicos sin duplicados.
 
 
 
 // 13. Elimina uno concreto a tu elección
 // Pista: delete(elemento) elimina un valor específico
 libros.delete('coquito')
-console.log(libros)
+console.log(libros) //resultado: Set(6) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito'} porque al usar delete('coquito') se elimina el libro 'coquito' del Set "libros", dejando el conjunto con los seis libros restantes, y se muestra en la consola como resultado de la operación de eliminación del elemento específico.
 console.log(libros.delete('coquito')) //-->devuelve false, porque el elemento 'coquito' ya no existe en el set después de eliminarlo, y no se puede eliminar algo que no existe en el set.
 // 14. Comprueba si un libro específico existe en el set
 // Pista: has(elemento) devuelve true o false
@@ -124,13 +130,15 @@ console.log(libros.has('lalito')) //--> devuelve true porque 'lalito' si existe
 let miarray2=[]
 console.log('este es mi nuevo array q viene de un SET')
 miarray2=Array.from(libros);
-console.log(miarray2)
+console.log(miarray2) //resultado: ['caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito'] porque Array.from(libros) convierte el Set "libros" en un array, manteniendo los elementos únicos del Set, y se muestra en la consola como resultado de la operación de conversión del Set a un array. 
 
 
 
 // 16. Añade varios elementos usando un array y forEach//////////////////////////////////////////////////////
 // Pista: Recorre el array y usa add() dentro del forEach
 //ejemplo 
+
+//tengo libros= Set(6) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito'}
 let arraylibros = ['el principito','el alquimista','el señor de los anillos']
 arraylibros.forEach(libro => libros.add(libro)) // el foreach recorre cada elemento del array y lo añade al set usando add()
                                                 // es como un for tradicional pero con una sintaxis más limpia y moderna, 
@@ -139,7 +147,8 @@ arraylibros.forEach(libro => libros.add(libro)) // el foreach recorre cada eleme
                                                 // durante la iteración, y puede ser cualquier nombre que elijas, 
                                                 // lo importante es que dentro del bloque de código del forEach se use esa variable 
                                                 // para referirse al elemento actual del array.
-console.log(libros)
+console.log(libros) 
+//resultado: Set(9) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito', 'el principito', 'el alquimista', 'el señor de los anillos'} porque al usar forEach para recorrer el array "arraylibros" y agregar cada libro al Set "libros" con add(), se añaden correctamente los tres nuevos libros al conjunto, resultando en un Set que contiene los nueve libros únicos sin duplicados, y se muestra en la consola como resultado de la operación de añadir varios elementos usando un array y forEach.
 
 let array3= ['300','paco yunque']
 array3.forEach(i=> libros.add(i))

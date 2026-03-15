@@ -12,7 +12,7 @@ Bloque 1 – Arrays básicos (niveles 1-10)
 // Pista: Usa corchetes [] y separa los elementos con comas
 let animales = ['vaca', 'toro', 'oveja', 'perro', 'gato'];
 console.log(animales);
-
+//devuelve: ['vaca', 'toro', 'oveja', 'perro', 'gato'] porque al crear un array con corchetes [] y separar los elementos con comas, se almacenan los cinco animales en el array "animales". 
 //roly: 
 
 
@@ -21,9 +21,9 @@ console.log(animales);
 // 2. Añade dos más. Uno al principio y otro al final
 // Pista: Para el inicio usa unshift() y para el final push()
 animales.unshift('caballo');
-console.log(animales);
+console.log(animales); //devuelve: ['caballo', 'vaca', 'toro', 'oveja', 'perro', 'gato'] porque al usar unshift() para agregar el animal 'caballo' al inicio del array "animales", se inserta el nuevo elemento al principio del array, desplazando los elementos existentes hacia la derecha y agregando el nuevo elemento en la posición 0, resultando en ['caballo', 'vaca', 'toro', 'oveja', 'perro', 'gato'].
 animales.push('conejo')
-console.log(animales)
+console.log(animales); //devuelve: ['caballo', 'vaca', 'toro', 'oveja', 'perro', 'gato', 'conejo'] porque al usar push() para agregar el animal 'conejo' al final del array "animales", se inserta el nuevo elemento al final del array, desplazando los elementos existentes hacia la izquierda y agregando el nuevo elemento en la última posición, resultando en ['caballo', 'vaca', 'toro', 'oveja', 'perro', 'gato', 'conejo'].
 
 
 
@@ -31,7 +31,7 @@ console.log(animales)
 // 3. Elimina el que se encuentra en tercera posición
 // Pista: Recuerda que los arrays empiezan en índice 0 y puedes usar splice()
 animales.splice(3,1)
-console.log(animales);
+console.log(animales); //devuelve: ['caballo', 'vaca', 'toro', 'perro', 'gato', 'conejo'] porque al usar splice(3,1) para eliminar el animal en la tercera posición (índice 3) del array "animales", se elimina el elemento en la posición 3, desplazando los elementos existentes hacia la izquierda y eliminando el elemento en la posición 3, resultando en ['caballo', 'vaca', 'toro', 'perro', 'gato', 'conejo'].
 
 
 
@@ -131,7 +131,8 @@ let miarray2=[]
 console.log('este es mi nuevo array q viene de un SET')
 miarray2=Array.from(libros);
 console.log(miarray2) //resultado: ['caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito'] porque Array.from(libros) convierte el Set "libros" en un array, manteniendo los elementos únicos del Set, y se muestra en la consola como resultado de la operación de conversión del Set a un array. 
-
+miarray2.sort()
+console.log(miarray2) //resultado: ['alas de sangre', 'caballero carmelo', 'harry potter', 'lalito', 'padre rico padre pobre', 'piense y hagase rico'] porque sort() ordena alfabéticamente los elementos del array "miarray2".
 
 
 // 16. Añade varios elementos usando un array y forEach//////////////////////////////////////////////////////
@@ -151,9 +152,9 @@ console.log(libros)
 //resultado: Set(9) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito', 'el principito', 'el alquimista', 'el señor de los anillos'} porque al usar forEach para recorrer el array "arraylibros" y agregar cada libro al Set "libros" con add(), se añaden correctamente los tres nuevos libros al conjunto, resultando en un Set que contiene los nueve libros únicos sin duplicados, y se muestra en la consola como resultado de la operación de añadir varios elementos usando un array y forEach.
 
 let array3= ['300','paco yunque']
-array3.forEach(i=> libros.add(i))
+array3.forEach(i=> libros.add(i)) //el foreach recorre cada elemento del array y lo añade al set usando add()
 console.log('agregue al set #libros ' + array3.length + ' elementos y quedaria asi : ' );
-console.log(libros)
+console.log(libros) //resultado: Set(11) {'caballero carmelo', 'harry potter', 'alas de sangre', 'piense y hagase rico', 'padre rico padre pobre', 'lalito', 'el principito', 'el alquimista', 'el señor de los anillos', '300', 'paco yunque'} porque al usar forEach para recorrer el array "array3" y agregar cada libro al Set "libros" con add(), se añaden correctamente los dos nuevos libros al conjunto, resultando en un Set que contiene los once libros únicos sin duplicados, y se muestra en la consola como resultado de la operación de añadir varios elementos usando un array y forEach.
 
 
 
@@ -168,10 +169,10 @@ for (let letra of letrasUnicas) {
 }
 //ahora yo:
 let cadena2= 'me quiero'
-let susletras = new Set(cadena2);
-for(let i of susletras) {
-    console.log(i)
-}
+let susletras = new Set();
+[...cadena2].forEach(i=>susletras.add(i))
+console.log(susletras)
+//resulta: Set(7) {'m', 'e', ' ', 'q', 'u', 'i', 'r'} porque al crear un nuevo Set con new Set(cadena2) se separa cada carácter de la cadena "me quiero" automáticamente, y se almacenan solo las letras únicas en el Set "susletras", eliminando los caracteres duplicados. Al mostrar el Set en la consola, se obtiene un conjunto que contiene las letras únicas de la cadena, incluyendo el espacio como un carácter único, resultando en Set(7) {'m', 'e', ' ', 'q', 'u', 'i', 'r'}.
 
 
 
@@ -196,11 +197,11 @@ console.log(set_combinado);
 
 let nros= new Set([1,2,3,4,5,6,7,8,9,10])
 nros.forEach(m=> {
-    if (m%2!=1){
+    if (m%2!=1){     //
         nros.delete(m)
     }
 } )
-console.log(nros)
+console.log(nros) //resultado: Set(5) {1, 3, 5, 7, 9} porque al usar forEach para recorrer el Set "nros" y eliminar los números pares con delete(), se eliminan correctamente los números pares del conjunto, dejando solo los números impares, y se muestra en la consola como resultado de la operación de eliminar pares del Set.
 
                         /*estructura general : 
                         array.forEach((elemento, indice, arrayCompleto) => {
@@ -235,8 +236,9 @@ let mapa= new Map([[1, 'enero'], [2, 'febrero'], [3, 'marzo'], [4, 'abril'], [5,
 
 // 22. Comprueba si el mes número 5 existe en el map e imprime su valor
 // Pista: has(clave) y get(clave)
-console.log(mapa.has(5));
-console.log(mapa.get(5))
+console.log(mapa.has(5)) //devuelve: true, porque existe la clave 5 en el map.
+console.log(mapa.get(5)) //devuelve: 'mayo', porque el valor asociado a la clave 5 es 'mayo'.
+
 
 
 
@@ -244,18 +246,26 @@ console.log(mapa.get(5))
 // Pista: set(clave, valorArray)
 let mesesVerano = ['enero', 'febrero', 'marzo'];
 mapa.set('verano', mesesVerano);
-console.log(mapa)
+console.log(mapa) //devuelve: Map(13) {1 => 'enero', 2 => 'febrero', 3 => 'marzo', 
+                    // 4 => 'abril', 5 => 'mayo', 6 => 'junio', 7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 
+                    // 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre', 'verano' => ['enero', 'febrero', 'marzo']} 
+                    // porque se añade la clave 'verano' con el array ['enero', 'febrero', 'marzo'] 
+                    // al map, resultando en un map que contiene los 13 pares clave-valor originales más el nuevo par clave-valor.
 //ahora yo: 
 let mesesInvierno=['mayo','junio','julio','agosto'];
 mapa.set('invierno',mesesInvierno);
 console.log(mapa);
+//devuelve: Map(14) {1 => 'enero', 2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio', 7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre', 'verano' => ['enero', 'febrero', 'marzo'], 'invierno' => ['mayo', 'junio', 'julio', 'agosto']} 
+                    // porque se añade la clave 'invierno' con el array ['mayo', 'junio', 'julio', 'agosto'] 
+                    // al map, resultando en un map que contiene los 14 pares clave-valor originales más el nuevo par clave-valor.
 
 
 
 // 24. Elimina un par clave-valor que no necesites
 // Pista: delete(clave)
 mapa.delete(1)
-console.log(mapa)
+console.log(mapa) //devuelve: Map(13) {2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio', 7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre', 'verano' => ['enero', 'febrero', 'marzo'], 'invierno' => ['mayo', 'junio', 'julio', 'agosto']} 
+                    // porque se elimina el par clave-valor {1 => 'enero'} del map, resultando en un map que contiene los 13 pares clave-valor originales menos el par clave-valor eliminado.
 
 
 
@@ -264,7 +274,8 @@ console.log(mapa)
 // Pista: set(clave, nuevoValor) sobreescribe el anterior
 let newverano= ['diciembre','enero','marzo','abril']
 mapa.set('verano',newverano)
-console.log(mapa)
+console.log(mapa) //devuelve: Map(13) {2 => 'febrero', 3 => 'marzo', 4 => 'abril', 5 => 'mayo', 6 => 'junio', 7 => 'julio', 8 => 'agosto', 9 => 'septiembre', 10 => 'octubre', 11 => 'noviembre', 12 => 'diciembre', 'verano' => ['enero', 'febrero', 'marzo'], 'invierno' => ['mayo', 'junio', 'julio', 'agosto']} 
+                    // porque se cambia el valor de la clave 'verano' de ['enero', 'febrero', 'marzo'] a ['diciembre', 'enero', 'marzo', 'abril'] en el map, resultando en un map que contiene los 13 pares clave-valor originales con el nuevo valor de la clave 'verano'. 
 
 
 
@@ -274,7 +285,8 @@ console.log(mapa)
 mapa.forEach((d,e) => {
     console.log('['+ e +':'+ d +']')
 })
-
+//devuelve: [1:enero], [2:febrero], [3:marzo], [4:abril], [5:mayo], [6:junio], [7:julio], [8:agosto], [9:septiembre], [10:octubre], [11:noviembre], [12:diciembre], [verano:['enero', 'febrero', 'marzo']], [invierno:['mayo', 'junio', 'julio', 'agosto']]
+                    // porque recorre el map y imprime todas las claves y valores del map.
 
 
 
@@ -282,6 +294,8 @@ mapa.forEach((d,e) => {
 // Pista: igual que el ejercicio 21, pero con nombres de países
 let pais=new Map([['Peru', 'Lima'],['Colombia', 'Bogota'],['Bolivia','La Paz'],['suiza','Berna'],['italia','Roma'],['francia','Paris']])
 console.log(pais);
+//devuelve: Map(6) {Peru => Lima, Colombia => Bogota, Bolivia => La Paz, suiza => Berna, italia => Roma, francia => Paris} 
+                    // porque se crea un map con las claves y valores de los países y sus capitales.
 
 
 
@@ -289,7 +303,7 @@ console.log(pais);
 // Pista: usa map() sobre el array y luego new Map()
 let arrayObjetos = [{id: 1, nombre: 'Alice'}, {id: 2, nombre: 'Bob'}, {id: 3, nombre: 'Charlie'}];
 let mapFromArray = new Map(arrayObjetos.map(obj => [obj.id, obj.nombre]));
-console.log(mapFromArray)
+console.log(mapFromArray)  //devuelve: Map(3) {1 => 'Alice', 2 => 'Bob', 3 => 'Charlie'}  
         
         //explicación: el método map() se utiliza para transformar cada objeto del array en un par clave-valor, 
         // donde la clave es el id del objeto y el valor es el nombre del objeto. Luego, 
@@ -305,10 +319,14 @@ console.log(mapFromArray)
             // Puedes ajustar estas propiedades según la estructura de tus objetos y las claves/valores que quieras asignar en el Map.
         //- --- -------------------------------------------------------------------------------------------------------------------
 
+
+        //El metodo map() su funcion principal es transformar cada elemento de un array en un nuevo elemento, 
+        //puedo recordar y memorizarlo como "mapear cada elemento de un array en un nuevo elemento"
+
 //ahora yo:
 let arrayObjetos2 = [{id: 1, nombre: 'Peru'}, {id: 2, nombre: 'Colombia'}, {id: 3, nombre: 'Bolivia'}, {id: 4, nombre: 'Suiza'}, {id: 5, nombre: 'Italia'}, {id: 6, nombre: 'Francia'}];
 let mapadeArray = new Map(arrayObjetos2.map(c=>[c.id,c.nombre]))
-console.log(mapadeArray)
+console.log(mapadeArray) //devuelve: Map(6) {1 => 'Peru', 2 => 'Colombia', 3 => 'Bolivia', 4 => 'Suiza', 5 => 'Italia', 6 => 'Francia'}  
 
 
 
@@ -337,16 +355,17 @@ mapConSets.get('frutas').add('uva'); // se accede al Set asociado a la clave 'fr
 
 mapConSets.get('verduras').add('pepino');
 console.log(mapConSets)
+//devuelve: Map(2) {frutas => Set(4) {'manzana', 'banana', 'naranja', 'uva'}, verduras => Set(4) {'lechuga', 'tomate', 'zanahoria', 'pepino'}}  
 
 // ahora yo:
 let mapaconsets2= new Map();
 mapaconsets2.set('amigos',new Set(['roly','basty','drake','lucho','anderson']))
-mapaconsets2.set('cursos',new Set(['calculo2','programacion','fisica2']))
-console.log(mapaconsets2)
+mapaconsets2.set('cursos',new Set(['calculo2','programacion','fisica3']))
+console.log(mapaconsets2) //devuelve: Map(2) {amigos => Set(5) {'roly', 'basty', 'drake', 'lucho', 'anderson'}, cursos => Set(4) {'calculo2', 'programacion', 'fisica3'}}  
 
-mapaconsets2.get('amigos').add('maddox')
-mapaconsets2.get('cursos').add('algrebra lineal')
-console.log(mapaconsets2)
+mapaconsets2.get('amigos').add('maddox') //resultado: Set(6) {'roly', 'basty', 'drake', 'lucho', 'anderson', 'maddox'}
+mapaconsets2.get('cursos').add('algrebra lineal') //resultado: Set(4) {'calculo2', 'programacion', 'fisica3', 'algrebra lineal'}
+console.log(mapaconsets2) //devuelve: Map(2) {amigos => Set(6) {'roly', 'basty', 'drake', 'lucho', 'anderson', 'maddox'}, cursos => Set(5) {'calculo2', 'programacion', 'fisica3', 'algrebra lineal'}}  
 
 // 30. Comprueba si un valor existe en algún set dentro de un map
 // Pista: Recorre el map con forEach y usa has() en cada set
@@ -356,18 +375,21 @@ mapaconsets2.forEach((valor, clave) => {
     }
 }
 )
-
+//devuelve: El valor 'maddox' existe en el set asociado a la clave 'amigos'
+                    // porque se comprueba si el valor 'maddox' existe en el set asociado a la clave 'amigos' en el Map, 
+                    // resultando en un mensaje que indica que el valor 'maddox' existe en el set asociado a la clave 'amigos'.
 
 //ahora yo:
 let nombre;
 nombre='maddox'
 mapaconsets2.forEach((value,key)=>{
-    if(value.has('drake')){
+    if(value.has(nombre)){
         console.log(`el nombre ${nombre} esta dentro de ${key}`)
     } else {
         console.log(`el nombre ${nombre} NO esta dentro de ${key}`)
     }
 })
+//devuelve: el nombre maddox esta dentro de amigos 
 
 
 /*
@@ -403,7 +425,11 @@ Si devuelve false, se descarta.
 */
 let may25 = usuarios.filter(j=> j.edad>25)
 console.log(may25)
-
+//devuelve: [{nombre: 'Alice', edad: 30}, {nombre: 'Charlie', edad: 28}, {nombre: 'Eve', edad: 26}]
+                    // porque filtra los usuarios que tienen más de 25 años y crea un nuevo array con los usuarios que cumplen la condición.    
+                    // en este caso se puede recordar y memorizar el metodo filter() como "filtrar los elementos de un array según una condición"
+let men24 = usuarios.filter(i=>i.edad>24)
+    console.log(men24)
 
 
 
@@ -411,11 +437,33 @@ console.log(may25)
 // 32. Transforma ese array en un set de nombres únicos
 // Pista: Usa map() para extraer nombres y luego new Set()
 let solonombres= may25.map(i=>i.nombre)
-console.log(solonombres)
+console.log(solonombres)//resultado: ['Alice', 'Charlie', 'Eve']    
 //transformandolo a set
-
 let myset = new Set(solonombres)
-console.log(myset);
+console.log(myset); //resultado: Set(3) {'Alice', 'Charlie', 'Eve'}
+                    // porque transforma el array en un set de nombres únicos.
+                    // en este caso se puede recordar y memorizar el metodo map() como "transformar cada elemento de un array en un nuevo elemento"
+
+//ahora yo:
+let usuarios2 = [{nombre: 'roly', edad: 18}, {nombre: 'basty', edad: 21}, {nombre: 'drake', edad: 22}, {nombre: 'lucho', edad: 23}, {nombre: 'anderson', edad: 24}, {nombre: 'maddox', edad: 25}];
+let soloedad = usuarios2.map(j=>j.edad);
+console.log(soloedad); //resultado: [18, 21, 22, 23, 24, 25]
+                    // porque transforma el array en un array de edades.
+                    // en este caso se puede recordar y memorizar el metodo map() como "transformar cada elemento de un array en un nuevo elemento" y el metodo Set() como "transformar cada elemento de un array en un nuevo elemento"
+//ahora yo 2:
+let set_soloedad = new Set(soloedad);
+console.log(set_soloedad); //resultado: Set(6) {18, 21, 22, 23, 24, 25}
+                    // porque transforma el array en un set de edades únicas.
+                    // en este caso se puede recordar y memorizar el metodo Set() como "transformar cada elemento de un array en un nuevo elemento"
+
+
+                    //PARA RECORDAR : map() sirve para transformar cada elemento de un array en un nuevo elemento,
+//ahora yo 3:
+let animes = [{nombre: 'naruto', capitulos: 220}, {nombre: 'one piece', capitulos: 1000}, {nombre: 'dragon ball', capitulos: 1000}]; 
+let solonombresA= animes.map(i=>i.nombre)
+console.log(solonombresA) //resultado: ['naruto', 'one piece', 'dragon ball'] 
+
+
 
 
 //////////////////////////////////////////////////////////////////////////NOTA //////////////////////////////////////////////////////////////////////////////
@@ -427,27 +475,55 @@ console.log(myset);
 
 
 
-// 33. Crea un map donde cada nombre de usuario sea clave y la edad valor
+// 33. Crea un Map donde cada nombre de usuario sea clave y la edad valor
 // Pista: Usa map() sobre el array y luego new Map()
 console.log('======================================================================')
 console.log('33. Crea un map donde cada nombre de usuario sea clave y la edad valor')
-console.log(may25)
+console.log(may25) //resultado: [{nombre: 'Alice', edad: 30}, {nombre: 'Charlie', edad: 28}, {nombre: 'Eve', edad: 26}] 
 console.log(`Tengo el array "may25" lo transformaremos en un Map`)
 
 let arraypares = may25.map(usuario=>[usuario.nombre,usuario.edad]) // el método map() se utiliza para transformar cada objeto 
                                                                    // del array "may25" en un par clave-valor,
-console.log(arraypares)
-let newmap= new Map(arraypares)
-console.log(newmap)
+console.log(arraypares) //resultado: [['Alice', 30], ['Charlie', 28], ['Eve', 26]]
+                        // porque transforma el array en un array de pares clave-valor.
+                        // en este caso se puede recordar y memorizar el metodo map() como "transformar cada elemento de un array en un nuevo elemento"
+let newmap25= new Map(arraypares)
+console.log(newmap25) //resultado: Map(3) {'Alice' => 30, 'Charlie' => 28, 'Eve' => 26}
+                    // porque transforma el array en un map de pares clave-valor.
+                    // en este caso se puede recordar y memorizar el metodo Map() como "transformar cada elemento de un array en un nuevo elemento"
 
+
+                    // Osea aparte de transformar cada elemento de un array en un nuevo elemento, 
+                    // map() tambien se puede usar para transformar cada objeto de un array en un par clave-valor.
 //ahora yo:
 console.log('ahora yo')
 let array2 = [{color: 'rojo', valor: '#FF0000'}, {color: 'verde', valor: '#00FF00'}, {color: 'azul', valor: '#0000FF'}];
 let arraysinobjetos= array2.map(i=>[i.color,i.valor]) //transformamos cada objeto en un par [x,y]
-console.log(arraysinobjetos)
+console.log(arraysinobjetos) //resultado: [['rojo', '#FF0000'], ['verde', '#00FF00'], ['azul', '#0000FF']] 
 console.log('ahora lo transformamos a Map')
 let mapdecolores= new Map(arraysinobjetos)
-console.log(mapdecolores)
+console.log(mapdecolores) //resultado: Map(3) {'rojo' => '#FF0000', 'verde' => '#00FF00', 'azul' => '#0000FF'} 
+
+//tercera practica con array de objetos:
+let array4 = [{nombre: 'roly', edad: 18}, {nombre: 'basty', edad: 20}, {nombre: 'drake', edad: 17 }, {nombre: 'lucho', edad: 23}, {nombre: 'anderson', edad: 24}, {nombre: 'maddox', edad: 20}]; 
+let sim_array4= array4.map(usuarios=>[usuarios.nombre,usuarios.edad])
+console.log(sim_array4) //resultado: [['roly', 18], ['basty', 20], ['drake', 17], ['lucho', 23], ['anderson', 24], ['maddox', 20]] 
+
+//Transformar un array de objets en un map de pares clave-valor, 
+// sirve en la vida real para almacenar datos relacionados de forma estructurada, 
+// como información de usuarios, configuraciones, 
+// o cualquier tipo de datos que requieran una asociación clave-valor.
+
+
+//practica 4:
+let array5 = [{usuario: 'roly', estado: 'activo'}, {usuario: 'basty', estado: 'inactivo'}, {usuario: 'drake', estado: 'activo'}, {usuario: 'lucho', estado: 'inactivo'}, {usuario: 'anderson', estado: 'activo'}, {usuario: 'maddox', estado: 'inactivo'}]; 
+let array5mod = array5.map (i=>i[i.usuario,i.estado])
+console.log(array5mod) //resultado: [['roly', 'activo'], ['basty', 'inactivo'], ['drake', 'activo'], ['lucho', 'inactivo'], ['anderson', 'activo'], ['maddox', 'inactivo']]  
+
+
+
+
+
 
 /*/apuntes//////////////////////////////////////////////////////////
 - los arrays en proyectos web se utilizan para almacenar listas ordenadas de elementos, como productos, usuarios, o cualquier tipo de datos que necesiten ser accedidos por su posición.
@@ -563,26 +639,139 @@ y luego aplicar map().
 // 34. Añade un nuevo usuario solo si no existe en el map
 // Pista: Comprueba con has(nombre) antes de set(nombre, edad)
 
+//hasta ahora tenemos: 
+console.log('hasta ahora tenemos:')
+console.log(newmap25) //resultado: Map(3) {'Alice' => 30, 'Charlie' => 28, 'Eve' => 26}
+//añadiremos un nuevo usuario: 
+newmap25.set('juan','23')
+console.log(newmap25) //resultado: Map(4) {'Alice' => 30, 'Charlie' => 28, 'Eve' => 26, 'juan' => '23'} 
+
+//ahora yo: 
+newmap25.set('pedro', '23')
+console.log(newmap25)
+
 
 
 
 // 35. Convierte el map de usuarios a un array de strings “Nombre:Edad”
 // Pista: Array.from(map).map(([clave,valor])=>`${clave}:${valor}`)
+let newarray25= Array.from(newmap25)
+console.log(newarray25) //resultado: [['Alice', 30], ['Charlie', 28], ['Eve', 26], ['juan', '23']] 
+//este nuevo metodo no tiene que usar [...] -->
+let newarray25a= Array.from(newmap25).map(([clave,valor])=>`${clave}:${valor}`)
+//devolvera: ['Alice:30', 'Charlie:28', 'Eve:26', 'juan:23']
+console.log(newarray25a)
+
+        //comentario: el map() destruye el array original y crea un nuevo array con los elementos transformados,
+        // en este caso se puede recordar y memorizar el metodo map() como "transformar cada elemento de un array en un nuevo elemento"
+        // lo transforma de [x,y] a 'x:y' --> que es una cadena de texto.
+
+//ahora yo:
+//ejemplo: numeros en aleman, convertiremos el map a un array de strings "clave:valor" 
+let newmap25a = new Map([['1','eins'],['2','zwei'],['3','drei'],['4','vier'],['5','fünf'],['6','sechs'],['7','sieben'],['8','acht'],['9','neun'],['10','zehn']])
+console.log(newmap25a) // resultado: Map(10) {'1' => 'eins', '2' => 'zwei', '3' => 'drei', '4' => 'vier', '5' => 'fünf', '6' => 'sechs', '7' => 'sieben', '8' => 'acht', '9' => 'neun', '10' => 'zehn'} 
+let newarray25a2= Array.from(newmap25a).map(([i,j])=>`${i}:${j}`)
+console.log(newarray25a2) //resultado: ['1:eins', '2:zwei', '3:drei', '4:vier', '5:fünf', '6:sechs', '7:sieben', '8:acht', '9:neun', '10:zehn']
+
+
+
 
 // 36. Crea un array con nombres duplicados y elimina los duplicados usando un set
 // Pista: Usa new Set(array) y luego [...set]
+let nombresDuplicados = ['Alice', 'Bob', 'Charlie', 'Alice', 'Bob']; 
+let set4 = new Set(nombresDuplicados)
+let nombresDuplicados2= [...set4]
+console.log(set4)
+
+
+
+/*
+Regla mental simple del operador spread (...)
+
+... = expandir elementos
+
+Dependiendo de dónde lo uses ocurre algo distinto:
+
+[...array]   → copia o crea un nuevo array con los elementos
+{...obj}     → copia o combina propiedades de un objeto
+func(...arr) → pasa cada elemento del array como argumento a la función
+*/
+
+
+
 
 // 37. Ordena un array de números de mayor a menor
 // Pista: Usa sort((a,b)=>b-a)
 
+let numeros = [5, 2, 9, 1, 5, 6];
+
+
+/*
+sort() compara pares de elementos del array.
+
+(a,b) = dos valores que el algoritmo está comparando.
+Si el resultado es:
+< 0 → a va antes
+> 0 → b va antes
+0   → no cambia el orden
+No se crea otro array, se ordena el original.
+*/
+
+numeros.sort((a,b)=>b-a)
+console.log(numeros) //devuelve: [9, 6, 5, 5, 2, 1] porque sort() ordena el array de números de mayor a menor según la función de comparación (b-a), resultando en un array ordenado de forma descendente.
+
+
+
 // 38. Calcula la suma de todos los elementos de un array de números
 // Pista: Usa reduce((acc,num)=>acc+num,0)
 
+let suma = numeros.reduce((acc,num)=>acc+num,0)
+console.log(suma) //devuelve: 28, porque reduce() recorre el array "numeros" y acumula la suma de todos los elementos, comenzando con un valor inicial de 0, resultando en la suma total de los números en el array.
+
+/*
+reduce() recorre un array y acumula los valores
+hasta producir un único resultado.
+
+array.reduce((acc, elemento) => nuevoValor, valorInicial)
+*/
+
+
+
+
 // 39. Crea un set con los días de la semana y elimina los fines de semana
 // Pista: forEach sobre el set y delete("Sábado"), delete("Domingo")
+let diasSemana = new Set(['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']); 
+
+/*
+Comparación de métodos de arrays:
+
+Métodos que DEVUELVEN un nuevo array (no modifican el original)
+
+* map()
+* filter()
+* slice()
+* concat()
+
+Métodos que NO devuelven un nuevo array
+
+* forEach() → solo recorre el array
+* sort()    → ordena el array original
+* push()    → agrega elementos al array original
+  */
+
+[...diasSemana].forEach(i=>{
+    if (i==='Sabado' || i ==='Domingo'){
+        diasSemana.delete(i)
+    }
+})
+console.log(diasSemana)
 
 // 40. Convierte un map en un array de arrays con [clave, valor]
 // Pista: Usa Array.from(map) o [...map]
+let mapaEjemplo = new Map([['a', 1], ['b', 2], ['c', 3]]); 
+console.log(mapaEjemplo)
+let arrayEjemplo = Array.from(mapaEjemplo)
+console.log(arrayEjemplo)
 
 
 /*
@@ -592,9 +781,26 @@ Bloque 5 – Ejercicios avanzados de manipulación (niveles 41-50)
 
 // 41. Crea un array con 10 números aleatorios y filtra los pares
 // Pista: Usa Math.random() para generar números y filter(n=>n%2===0)
+let numerosAleatorios = Array.from({length:10},
+                        ()=> Math.floor(Math.random()*100)+1)
+console.log(numerosAleatorios)
+let numerosPares = numerosAleatorios.filter(n=>n%2===0)
+console.log(numerosPares)
+
+
+
 
 // 42. Crea un set de frutas y elimina aquellas que contengan la letra “a”
 // Pista: forEach sobre el set y delete() según includes("a")
+let frutas = new Set(['manzana', 'banana', 'naranja', 'pera', 'higo','este']); 
+let frutasConA = [...frutas].forEach(i=>{
+    if([...i].includes('a')){
+        frutas.delete(i)
+    }
+})
+console.log(frutas)
+
+
 
 // 43. Crea un map con productos y sus precios, y aumenta todos los precios un 10%
 // Pista: forEach sobre map y set(clave, valor*1.1)
